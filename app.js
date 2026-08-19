@@ -201,7 +201,6 @@ const observeReveals = () => $$('.reveal:not(.in)').forEach(n => io.observe(n));
     n.innerHTML = `
       <div class="mcard__top">
         <span class="mcard__name">${m.name}</span>
-        ${m.badge ? `<span class="mcard__badge${m.badgeKind === 'new' ? ' mcard__badge--new' : ''}">${m.badge}</span>` : ''}
       </div>
       <span class="mcard__id">${m.id}</span>
       <div class="mcard__row"><span>вход / 1M</span><b>${m.in}</b></div>
