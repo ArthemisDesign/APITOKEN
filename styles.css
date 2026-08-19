@@ -753,20 +753,23 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radiu
    ========================================================= */
 @media (max-width:640px){
   .netwrap{
-    aspect-ratio:auto;min-height:0;padding:22px 16px;
-    display:flex;flex-wrap:wrap;gap:8px;
-    align-items:center;justify-content:center;
+    aspect-ratio:auto;min-height:0;padding:24px 16px 30px;
+    display:flex;flex-direction:column;gap:0;
   }
   .netwrap .net{display:none}
-  .netwrap .node,.netwrap .core{position:static;transform:none;left:auto;top:auto}
-  .netwrap .core{order:-1;width:100%;margin-bottom:6px}
-  .node{font-size:11px}
+  .netwrap .node,.netwrap .core{display:none}
 
   .grow{height:auto;min-height:0;padding:22px 16px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
   .grow span{position:static;left:auto;top:auto;opacity:1;transform:none;animation:none}
 
   .flow__fan{height:56px}
   .term__body,.code{font-size:11px}
+
+  .netmob__group,.netmob__core,.netmob__product{padding:12px 14px}
+  .netmob__list li{padding:8px 10px;font-size:12px}
+  .netmob__arrow{font-size:20px}
+  .netmob__core .netmob__name{font-size:24px}
+  .netmob__product .netmob__name{font-size:22px}
 }
 
 /* =========================================================
@@ -939,26 +942,67 @@ body{line-height:1.5}
 
 /* narrow-screen fallback stack */
 .netlist{display:none}
-.netlist li{
-  display:flex;justify-content:space-between;align-items:center;gap:12px;
-  padding:12px 16px;border:1px solid var(--line);border-radius:var(--r-pill);
-  background:var(--paper);font-family:var(--mono);font-size:12px;
-}
-.netlist b{font-weight:400;color:var(--ink)}
-.netlist__more{border-style:dashed;color:var(--ink)}
-.netlist__core{border-color:var(--accent);font-size:15px;font-family:var(--sans);font-weight:600}
-.netlist__core b{color:var(--accent);font-family:var(--mono);font-size:11px}
-.netlist__out{background:var(--ink);border-color:var(--ink);color:var(--paper);justify-content:center}
+.netmob{display:none}
 
 @media (max-width:820px){
-  .netwrap{aspect-ratio:auto;padding:22px 18px;min-height:0;display:flex;flex-direction:column;gap:8px;background:var(--accent)}
+  .netwrap{aspect-ratio:auto;padding:26px 18px 30px;min-height:0;display:flex;flex-direction:column;gap:0;background:var(--accent)}
   .net{display:none}
-  .netlist{display:flex;flex-direction:column;gap:8px;position:static}
-  .netlist li{background:var(--paper);border-color:var(--ink);color:var(--ink)}
-  .netlist__core{background:var(--paper);border-color:var(--accent);color:var(--ink)}
-  .netlist__core b{color:var(--accent)}
-  .netlist__out{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-  .netlist__more{border-style:dashed;color:var(--ink);background:transparent}
+  .netlist{display:none}
+  .netmob{display:flex;flex-direction:column;gap:16px;position:static;color:var(--ink)}
+
+  .netmob__group{
+    border:1px solid var(--ink);border-radius:var(--r-m);
+    background:var(--paper);padding:14px 16px;
+  }
+  .netmob__label{
+    display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--g400);margin-bottom:12px;
+  }
+  .netmob__list{
+    display:flex;flex-direction:column;gap:8px;
+    font-family:var(--mono);font-size:13px;letter-spacing:.02em;
+  }
+  .netmob__list li{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 12px;border:1px solid var(--line);border-radius:var(--r-pill);
+    background:#fff;
+  }
+  .netmob__list b{font-weight:500;color:var(--ink)}
+  .netmob__more{
+    display:block;margin-top:10px;padding:10px 12px;
+    border:1px dashed var(--line);border-radius:var(--r-pill);
+    font-family:var(--mono);font-size:12px;color:var(--g400);text-align:center;
+  }
+
+  .netmob__arrow{
+    align-self:center;font-size:22px;line-height:1;color:#fff;font-weight:600;
+  }
+
+  .netmob__core{
+    border:1px solid var(--accent);border-radius:var(--r-m);
+    background:var(--paper);padding:18px 16px;text-align:center;
+  }
+  .netmob__core .netmob__name{
+    display:block;font-size:clamp(22px,6vw,30px);font-weight:600;letter-spacing:-.03em;color:var(--ink);
+  }
+  .netmob__tick{
+    display:block;margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.04em;
+  }
+
+  .netmob__product{
+    border:1px solid var(--ink);border-radius:var(--r-m);
+    background:var(--ink);color:var(--paper);padding:18px 16px;text-align:center;
+  }
+  .netmob__product .netmob__name{
+    display:block;font-size:clamp(20px,5.5vw,26px);font-weight:600;letter-spacing:-.03em;
+  }
+  .netmob__code{
+    display:block;margin-top:8px;font-family:var(--mono);font-size:12px;color:var(--paper);letter-spacing:.02em;
+  }
+  .netmob__note{
+    display:block;margin-top:6px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--accent);
+  }
 }
 
 /* =========================================================
@@ -1396,9 +1440,11 @@ body{line-height:1.5}
 
   /* schematic */
   .band{padding-top:clamp(48px,12vw,80px)}
-  .netwrap{aspect-ratio:4/5;padding:16px}
-  .netlist{gap:6px}
-  .netlist li{padding:10px 14px;font-size:11px}
+  .netwrap{aspect-ratio:auto;padding:24px 16px 30px}
+  .netmob{gap:14px}
+  .netmob__group,.netmob__core,.netmob__product{padding:12px 14px}
+  .netmob__list li{padding:8px 10px;font-size:12px}
+  .netmob__arrow{font-size:18px}
 
   /* sections general */
   .sechead{margin-bottom:clamp(32px,8vw,52px)}
