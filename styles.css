@@ -1334,16 +1334,16 @@ body{line-height:1.5}
 .plate__foot .btn--solid:hover{background:transparent;color:var(--ink)}
 
 .plate__claim{
-  position:absolute;right:var(--margin);bottom:clamp(48px,5vw,80px);
+  position:absolute;right:var(--margin);top:calc(var(--hdr-h,84px) + clamp(20px,3vw,40px));
   display:flex;flex-direction:column;align-items:flex-end;text-align:right;
   z-index:3;
 }
 .plate__claim .claim__val{
   color:var(--ink);
-  font-size:clamp(40px,5vw,84px);line-height:1;letter-spacing:-.05em;
+  font-size:clamp(40px,5vw,84px);line-height:1.1;letter-spacing:-.05em;
   padding:.08em 0;
 }
-.plate__claim .claim__val em{font-style:normal;font-size:.45em;vertical-align:super;line-height:1}
+.plate__claim .claim__val em{font-style:normal;font-size:.45em;vertical-align:super;line-height:1;padding-top:.25em;display:inline-block}
 
 /* header sits directly on the plate until the page scrolls */
 .hdr{--hdr-h:84px}
@@ -1365,7 +1365,7 @@ body{line-height:1.5}
 @media (max-width:1024px){
   .plate__mark{right:4%;bottom:12%;width:min(46vw,380px);opacity:.85}
   .plate__foot{max-width:min(48ch,72vw)}
-  .plate__claim{position:static;align-items:flex-start;text-align:left;margin-top:40px}
+  .plate__claim{top:calc(var(--hdr-h,84px) + 16px);right:var(--margin)}
   .plate__grid{grid-template-columns:repeat(6,1fr)}
   .plate__h{font-size:clamp(48px,10vw,90px)}
 }
@@ -1375,6 +1375,7 @@ body{line-height:1.5}
   .plate__in{padding-bottom:32px}
   .plate__labels{gap:28px;padding-bottom:28px}
   .plate__grid{display:none}
+  .plate__claim{position:static;align-items:flex-start;text-align:left;margin-top:24px}
 }
 
 :root{--hdr-h:84px}
@@ -1386,9 +1387,8 @@ body{line-height:1.5}
 }
 
 @media (max-width:1024px){
-  .plate__claim{position:static;align-items:flex-start;text-align:left;margin-top:40px}
+  .plate__mark{right:4%;top:auto;bottom:12%;width:min(44vw,360px)}
 }
-
 @media (max-width:640px){
   .plate{flex-direction:column}
   .plate::before{display:none}
