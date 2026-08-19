@@ -1300,7 +1300,7 @@ body{line-height:1.5}
 }
 
 .plate__labels{
-  display:flex;gap:clamp(40px,10vw,180px);
+  display:flex;justify-content:space-between;align-items:flex-start;gap:clamp(40px,10vw,180px);
   padding-bottom:clamp(40px,5vw,80px);
 }
 .plate__labels .meta{
@@ -1334,14 +1334,14 @@ body{line-height:1.5}
 .plate__foot .btn--solid:hover{background:transparent;color:var(--ink)}
 
 .plate__claim{
-  position:absolute;right:var(--margin);top:calc(var(--hdr-h,84px) + clamp(20px,3vw,40px));
+  position:relative;right:auto;top:auto;
   display:flex;flex-direction:column;align-items:flex-end;text-align:right;
   z-index:3;
-  padding-top:14px;
+  margin-left:auto;
 }
 .plate__claim .claim__val{
   color:var(--ink);
-  font-size:clamp(40px,5vw,84px);line-height:1;letter-spacing:-.05em;
+  font-size:clamp(32px,4vw,72px);line-height:1;letter-spacing:-.05em;
 }
 .plate__claim .claim__val em{font-style:normal;font-size:.45em;vertical-align:super;line-height:1;padding-top:.25em;display:inline-block}
 
@@ -1365,7 +1365,7 @@ body{line-height:1.5}
 @media (max-width:1024px){
   .plate__mark{right:4%;bottom:12%;width:min(46vw,380px);opacity:.85}
   .plate__foot{max-width:min(48ch,72vw)}
-  .plate__claim{top:calc(var(--hdr-h,84px) + 16px);right:var(--margin)}
+  .plate__claim{margin-top:4px}
   .plate__grid{grid-template-columns:repeat(6,1fr)}
   .plate__h{font-size:clamp(48px,10vw,90px)}
 }
@@ -1373,9 +1373,11 @@ body{line-height:1.5}
   .plate{min-height:0;border-bottom:0}
   .plate__mark{position:relative;right:auto;bottom:auto;width:58%;margin:30px auto 0;opacity:.8}
   .plate__in{padding-bottom:32px}
-  .plate__labels{gap:28px;padding-bottom:28px}
+  .plate__labels{flex-wrap:wrap;gap:16px;padding-bottom:28px}
+  .plate__labels .meta{order:1}
+  .plate__claim{order:2;width:100%;align-items:flex-start;text-align:left;margin-left:0;margin-top:8px}
+  .plate__claim .claim__val{font-size:clamp(40px,12vw,64px)}
   .plate__grid{display:none}
-  .plate__claim{position:static;align-items:flex-start;text-align:left;margin-top:24px}
 }
 
 :root{--hdr-h:84px}
