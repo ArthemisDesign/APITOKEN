@@ -54,9 +54,37 @@ if (window.Lenis && window.MO_SMOOTH !== false && !REDUCED && !TOUCH) {
   }));
 }
 
-/* Safety net: anything that moves the window without going through Lenis —
-   keyboard, scrollbar drag, browser scroll restore, devtools — would otherwise
-   leave ScrollTrigger stale and freeze elements at their start state. */
+/* ---------------------------------------------------------
+   CUSTOM CURSOR
+   --------------------------------------------------------- */
+if (!TOUCH && !REDUCED) {
+  const cursor = document.createElement('div');
+  cursor.className = 'mo-cursor';
+  cursor.innerHTML = '<i></i><b></b>';
+  document.body.appendChild(cursor);
+
+  let mx = 0, my = 0, cx = 0, cy = 0, scale = 1;
+  addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+
+  function moveCursor() {
+    cx += (mx - cx) * .15;
+    cy += (my - cy) * .15;
+    cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%) scale(${scale})`;
+    requestAnimationFrame(moveCursor);
+  }
+  moveCursor();
+
+  const hoverables = 'a, button, .chip, .mcard, .pick, .tab, .tut, .acc__q, .vid__stage';
+  $$('body').forEach(b => {
+    b.addEventListener('mouseover', e => {
+      if (e.target.closest && e.target.closest(hoverables)) { scale = 1.8; cursor.classList.add('exp'); }
+    });
+    b.addEventListener('mouseout', e => {
+      if (e.target.closest && e.target.closest(hoverables)) { scale = 1; cursor.classList.remove('exp'); }
+    });
+  });
+}
+
 addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
 
 /* ---------------------------------------------------------
@@ -332,7 +360,24 @@ $$('.btn, .nav a, .lnk--arrow').forEach(b => {
 });
 
 /* ---------------------------------------------------------
-   15 · DYNAMIC CONTENT — app.js re-renders these
+   16 · MAGNETIC ELEMENTS
+   --------------------------------------------------------- */
+if (!TOUCH && !REDUCED) {
+  $$('.btn, .chip, .mcard, .pick, .tab, .tut, .acc__q').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      gsap.to(el, { x: x * .12, y: y * .12, duration: .35, ease: 'power2.out', overwrite: 'auto' });
+    });
+    el.addEventListener('mouseleave', () => {
+      gsap.to(el, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1, .5)', overwrite: 'auto' });
+    });
+  });
+}
+
+/* ---------------------------------------------------------
+   17 · DYNAMIC CONTENT — app.js re-renders these
    --------------------------------------------------------- */
 function decorate(host) {
   const fresh = $$('.prov, .pick, .tut', host).filter(n => !n.dataset.moSeen);
