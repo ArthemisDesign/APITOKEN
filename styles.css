@@ -648,9 +648,9 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radiu
   .nav{display:none}
   .burger{display:flex}
   .hdr__acts .btn{display:none}
-  .hdr__in{grid-template-columns:1fr auto}
-  .brand{grid-column:1}
-  .hdr__acts{grid-column:2}
+  .hdr__in{display:flex;justify-content:space-between;align-items:center;gap:12px;grid-template-columns:none}
+  .brand{grid-column:auto}
+  .hdr__acts{grid-column:auto;display:flex;align-items:center;gap:10px}
   .hero__claim{align-items:flex-start;margin-top:26px}
   .microfacts{justify-content:flex-start;margin-top:20px}
   .prov{grid-template-columns:1fr;gap:22px}
@@ -1399,10 +1399,6 @@ body{line-height:1.5}
   .plate__claim{margin-top:6px}
   .plate__claim .claim__val{font-size:clamp(28px,9vw,48px)}
   .plate__claim .claim__lab{font-size:9px}
-}
-
-@media (max-width:1024px){
-  .plate__mark{right:4%;top:auto;bottom:12%;width:min(44vw,360px)}
 }
 /* =========================================================
    MOBILE ADAPTIVE — up to 640px
