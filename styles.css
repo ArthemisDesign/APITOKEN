@@ -292,9 +292,9 @@ body::before{
    01 · UNIVERSE
    ========================================================= */
 .filters{
-  display:inline-flex;flex-wrap:wrap;gap:3px;
-  padding:5px;border:1px solid var(--line);border-radius:999px;
-  background:#fff;margin-bottom:clamp(36px,4vw,64px)
+  display:inline-flex;flex-wrap:wrap;gap:6px;
+  padding:0;border:0;border-radius:0;
+  background:transparent;margin-bottom:clamp(36px,4vw,64px)
 }
 .chip{
   font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:-.01em;
