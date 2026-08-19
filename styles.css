@@ -1424,7 +1424,9 @@ body{line-height:1.5}
   .hdr__in{padding:14px var(--margin)}
   .hdr__acts .lnk{display:none}
   .hdr__acts .btn{display:none}
-  .lang{transform:scale(.92)}
+  .hdr__acts{gap:10px}
+  .lang{transform:none;display:flex;align-items:center}
+  .lang__link{min-width:34px;padding:5px 8px;font-size:11px}
   .burger{display:flex}
   .nav{
     display:none;
@@ -1437,7 +1439,6 @@ body{line-height:1.5}
   .nav a:last-child{border-bottom:0}
 
   /* hero */
-  .hero{margin-top:0}
   .plate{min-height:0;padding-bottom:0}
   .plate__in{padding-top:calc(var(--hdr-h) + 28px);padding-bottom:28px}
   .plate__labels{gap:20px;padding-bottom:24px}
