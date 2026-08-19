@@ -1,0 +1,38 @@
+/* =========================================================
+   fonts.css — TT Runs Trial
+   TRIAL LICENCE: demonstration only. Commercial / public
+   deployment requires a web licence from the foundry.
+   Files are .ttf; convert to .woff2 before production
+   (roughly 3-4x smaller).
+   ========================================================= */
+
+@font-face{
+  font-family:"TT Runs";
+  src:url("fonts/TTRuns-Light.ttf") format("truetype");
+  font-weight:300;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"TT Runs";
+  src:url("fonts/TTRuns-Regular.ttf") format("truetype");
+  font-weight:400;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"TT Runs";
+  src:url("fonts/TTRuns-Medium.ttf") format("truetype");
+  font-weight:500;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"TT Runs";
+  src:url("fonts/TTRuns-DemiBold.ttf") format("truetype");
+  font-weight:600;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"TT Runs";
+  src:url("fonts/TTRuns-Bold.ttf") format("truetype");
+  font-weight:700;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"TT Runs";
+  src:url("fonts/TTRuns-ExtraBold.ttf") format("truetype");
+  font-weight:800;font-style:normal;font-display:swap;
+}

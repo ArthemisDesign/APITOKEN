@@ -1,0 +1,33 @@
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+
+# Node
+node_modules/
+package-lock.json
+package.json
+
+# Audit / draft scripts
+audit.js
+audit2.js
+defects.js
+diag.js
+net-*.js
+parts.js
+probe.js
+shot.js
+surgery.js
+snap.js
+screenshot.js
+
+# Screenshots / previews (keep only if they should be in repo)
+shots/
+refs/
