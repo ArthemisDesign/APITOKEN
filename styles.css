@@ -1340,10 +1340,10 @@ body{line-height:1.5}
 }
 .plate__claim .claim__val{
   color:var(--ink);
-  font-size:clamp(40px,5vw,84px);line-height:1.1;letter-spacing:-.05em;
-  padding:.08em 0;
+  font-size:clamp(40px,5vw,84px);line-height:1.35;letter-spacing:-.05em;
+  padding:.12em 0 .06em;
 }
-.plate__claim .claim__val em{font-style:normal;font-size:.45em;vertical-align:super;line-height:1;padding-top:.25em;display:inline-block}
+.plate__claim .claim__val em{font-style:normal;font-size:.45em;vertical-align:super;line-height:1;padding-top:.35em;display:inline-block}
 
 /* header sits directly on the plate until the page scrolls */
 .hdr{--hdr-h:84px}
