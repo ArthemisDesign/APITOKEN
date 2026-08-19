@@ -1385,28 +1385,24 @@ body{line-height:1.5}
 
 @media (max-width:640px){
   .hero{margin-top:0}
-  .plate__mark{position:relative;right:auto;top:auto;width:58%;margin:30px auto 0;opacity:.85}
-}
-
-@media (max-width:1024px){
-  .plate__mark{right:4%;top:auto;bottom:12%;width:min(44vw,360px)}
-}
-@media (max-width:640px){
   .plate{flex-direction:column}
   .plate::before{display:none}
   .plate__in{order:1;padding-top:clamp(28px,8vw,44px)}
-  .plate__mark{order:2;width:56%;margin:24px 0 0;opacity:.8}
+  .plate__mark{
+    order:2;position:relative;right:auto;top:auto;
+    width:min(52%,220px);margin:24px auto 0;opacity:.85;
+  }
+  .plate__mark path{stroke-width:32}
   .plate__h{font-size:clamp(42px,13vw,68px);max-width:none}
   .plate__foot{max-width:none;padding-top:32px}
   .plate__labels{padding-bottom:22px}
+  .plate__claim{margin-top:6px}
+  .plate__claim .claim__val{font-size:clamp(28px,9vw,48px)}
+  .plate__claim .claim__lab{font-size:9px}
 }
 
 @media (max-width:1024px){
   .plate__mark{right:4%;top:auto;bottom:12%;width:min(44vw,360px)}
-}
-@media (max-width:640px){
-  .plate__mark{position:relative;right:auto;top:auto;width:56%;margin:20px 0 0;opacity:.8}
-  .plate__mark path{stroke-width:40}
 }
 /* =========================================================
    MOBILE ADAPTIVE — up to 640px
@@ -1451,10 +1447,11 @@ body{line-height:1.5}
   .plate__foot .lead{font-size:16px}
   .hero__cta{flex-direction:column;align-items:stretch}
   .hero__cta .btn{width:100%}
-  .plate__claim{position:static;align-items:flex-start;text-align:left;margin-top:28px}
-  .plate__claim .claim__val{font-size:clamp(48px,14vw,80px)}
-  .plate__mark{position:relative;right:auto;bottom:auto;top:auto;width:64%;margin:24px 0 0;opacity:1}
-  .plate__mark path{stroke-width:32}
+  .plate__claim{position:static;align-items:flex-start;text-align:left;margin-top:14px}
+  .plate__claim .claim__val{font-size:clamp(28px,9vw,48px)}
+  .plate__claim .claim__lab{font-size:9px}
+  .plate__mark{position:relative;right:auto;bottom:auto;top:auto;width:min(52%,220px);margin:24px auto 0;opacity:1}
+  .plate__mark path{stroke-width:30}
 
   /* schematic */
   .band{padding-top:clamp(48px,12vw,80px)}
