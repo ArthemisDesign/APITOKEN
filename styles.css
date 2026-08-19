@@ -255,7 +255,7 @@ body::before{
   pointer-events:none;
   z-index:0;
 }
-.netwrap .net, .netwrap .netlist{position:relative;z-index:1}
+.netwrap .net, .netwrap .netlist, .netwrap .netmob{position:relative;z-index:1}
 .net{position:absolute;inset:0;width:100%;height:100%}
 .net__links path{fill:none;stroke:var(--line);stroke-width:1;vector-effect:non-scaling-stroke}
 .net__flow path{
@@ -767,7 +767,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radiu
 
   .netmob__group,.netmob__core,.netmob__product{padding:12px 14px}
   .netmob__list li{padding:8px 10px;font-size:12px}
-  .netmob__arrow{font-size:20px}
+  .netmob__arrow{height:30px}
   .netmob__core .netmob__name{font-size:24px}
   .netmob__product .netmob__name{font-size:22px}
 }
@@ -898,7 +898,7 @@ body{line-height:1.5}
   pointer-events:none;
   z-index:0;
 }
-.netwrap .net, .netwrap .netlist{position:relative;z-index:1}
+.netwrap .net, .netwrap .netlist, .netwrap .netmob{position:relative;z-index:1}
 .net{position:absolute;inset:0;width:100%;height:100%}
 
 /* NB: vector-effect is switched OFF here on purpose — and explicitly,
@@ -975,7 +975,23 @@ body{line-height:1.5}
   }
 
   .netmob__arrow{
-    align-self:center;font-size:22px;line-height:1;color:#fff;font-weight:600;
+    align-self:center;position:relative;
+    width:2px;height:34px;margin:2px 0;
+    background:rgba(255,255,255,.22);
+    border-radius:999px;overflow:visible;
+  }
+  .netmob__flow{
+    position:absolute;left:0;top:0;width:100%;height:40%;
+    background:#fff;border-radius:999px;
+    animation:flowDown 1.6s linear infinite;
+  }
+  @keyframes flowDown{
+    0%{top:-40%}
+    100%{top:100%}
+  }
+  .netmob__head{
+    position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);
+    font-size:16px;line-height:1;color:#fff;font-weight:600;
   }
 
   .netmob__core{
@@ -1444,7 +1460,8 @@ body{line-height:1.5}
   .netmob{gap:14px}
   .netmob__group,.netmob__core,.netmob__product{padding:12px 14px}
   .netmob__list li{padding:8px 10px;font-size:12px}
-  .netmob__arrow{font-size:18px}
+  .netmob__arrow{height:28px}
+  .netmob__head{font-size:14px;bottom:-12px}
 
   /* sections general */
   .sechead{margin-bottom:clamp(32px,8vw,52px)}
