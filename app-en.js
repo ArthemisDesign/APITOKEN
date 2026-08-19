@@ -141,7 +141,7 @@ const byId = id => ALL_MODELS.find(m => m.id === id);
 
 const hdr = $('#hdr');
 addEventListener('scroll', () => hdr.classList.toggle('small', scrollY > 40), { passive: true });
-$('#burger')?.addEventListener('click', () => $('.nav').style.display = $('.nav').style.display === 'flex' ? '' : 'flex');
+$('#burger')?.addEventListener('click', () => $('.nav').classList.toggle('open'));
 
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });

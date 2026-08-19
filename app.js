@@ -152,7 +152,7 @@ const byId = id => ALL_MODELS.find(m => m.id === id);
    --------------------------------------------------------- */
 const hdr = $('#hdr');
 addEventListener('scroll', () => hdr.classList.toggle('small', scrollY > 40), { passive: true });
-$('#burger')?.addEventListener('click', () => $('.nav').style.display = $('.nav').style.display === 'flex' ? '' : 'flex');
+$('#burger')?.addEventListener('click', () => $('.nav').classList.toggle('open'));
 
 /* ---------------------------------------------------------
    REVEAL ON SCROLL
