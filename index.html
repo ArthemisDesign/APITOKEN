@@ -179,41 +179,6 @@
       <h2 class="display c1-13">Интегрируйте раз.<br><span class="ghost">Меняйте модель.</span></h2>
     </header>
 
-    <div class="trace reveal">
-      <div class="trace__head">
-        <span class="trace__req"><b>POST</b> router.apitoken.sale/v1/messages</span>
-        <span class="trace__res">200 OK · 1 246 мс · $0.0042</span>
-      </div>
-
-      <ol class="trace__rows">
-        <li style="--o:0;--w:1.2">
-          <span class="trace__st">Проверка ключа</span><span class="trace__track"><i></i></span><b>2 мс</b>
-        </li>
-        <li style="--o:1.2;--w:0.9">
-          <span class="trace__st">Выбор маршрута</span><span class="trace__track"><i></i></span><b>1 мс</b>
-        </li>
-        <li class="is-up" style="--o:2.1;--w:95.6">
-          <span class="trace__st">Anthropic · claude-opus-5</span><span class="trace__track"><i></i></span><b>1 240 мс</b>
-        </li>
-        <li style="--o:97.7;--w:2.3">
-          <span class="trace__st">Учёт расхода</span><span class="trace__track"><i></i></span><b>3 мс</b>
-        </li>
-      </ol>
-
-      <div class="trace__note">
-        <span>Накладные расходы шлюза — <b>6 мс</b> из 1 246. Остальное занимает сама модель.</span>
-      </div>
-
-      <div class="trace__routes">
-        <span class="trace__rlab">Один хост принимает четыре формата</span>
-        <span>/v1/messages</span>
-        <span>/v1/responses</span>
-        <span>/v1/chat/completions</span>
-        <span>/v1beta/models/…:generateContent</span>
-      </div>
-    </div>
-    <p class="cap cap--free">Трассировка запроса · Чертёж №: 02.01.00</p>
-
     <div class="grid apisplit">
       <ul class="c1-5 bigfacts reveal">
         <li>Один endpoint</li>

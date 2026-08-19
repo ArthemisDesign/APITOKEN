@@ -242,22 +242,16 @@ body::before{
 .netwrap{
   position:relative;width:100%;aspect-ratio:900/420;
   border:1px solid var(--line);
-  background-color:var(--accent);
-  background-image:
-    linear-gradient(var(--ink) 1px, transparent 1px),
-    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
-  background-size:48px 48px;
-  background-position:center center;
+  background-color:#FF7A6E;
   overflow:hidden;
 }
 .netwrap::before{
   content:"";position:absolute;inset:0;
   background-image:
-    linear-gradient(var(--ink) 1px, transparent 1px),
-    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+    linear-gradient(#A8A7AA 1px, transparent 1px),
+    linear-gradient(90deg, #A8A7AA 1px, transparent 1px);
   background-size:48px 48px;
   background-position:center center;
-  opacity:.22;
   pointer-events:none;
   z-index:0;
 }
@@ -888,22 +882,16 @@ body{line-height:1.5}
 .netwrap{
   max-width:1240px;margin:0 auto;
   aspect-ratio:1120/460;
-  background-color:var(--accent);
-  background-image:
-    linear-gradient(var(--ink) 1px, transparent 1px),
-    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
-  background-size:48px 48px;
-  background-position:center center;
+  background-color:#FF7A6E;
   padding:0;
 }
 .netwrap::before{
   content:"";position:absolute;inset:0;
   background-image:
-    linear-gradient(var(--ink) 1px, transparent 1px),
-    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+    linear-gradient(#A8A7AA 1px, transparent 1px),
+    linear-gradient(90deg, #A8A7AA 1px, transparent 1px);
   background-size:48px 48px;
   background-position:center center;
-  opacity:.22;
   pointer-events:none;
   z-index:0;
 }
