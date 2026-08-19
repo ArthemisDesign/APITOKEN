@@ -242,13 +242,30 @@ body::before{
 .netwrap{
   position:relative;width:100%;aspect-ratio:900/420;
   border:1px solid var(--line);
-  background:#fff;
+  background-color:var(--accent);
+  background-image:
+    linear-gradient(var(--ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+  background-size:48px 48px;
+  background-position:center center;
   overflow:hidden;
 }
+.netwrap::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+  background-size:48px 48px;
+  background-position:center center;
+  opacity:.22;
+  pointer-events:none;
+  z-index:0;
+}
+.netwrap .net, .netwrap .netlist{position:relative;z-index:1}
 .net{position:absolute;inset:0;width:100%;height:100%}
 .net__links path{fill:none;stroke:var(--line);stroke-width:1;vector-effect:non-scaling-stroke}
 .net__flow path{
-  fill:none;stroke:var(--accent);stroke-width:1.5;vector-effect:non-scaling-stroke;
+  fill:none;stroke:#fff;stroke-width:1.5;vector-effect:non-scaling-stroke;
   stroke-dasharray:8 260;stroke-dashoffset:268;animation:flow 3.6s linear infinite;
 }
 .net__flow path:nth-child(2){animation-delay:.6s}
@@ -871,9 +888,26 @@ body{line-height:1.5}
 .netwrap{
   max-width:1240px;margin:0 auto;
   aspect-ratio:1120/460;
-  background:var(--paper);
+  background-color:var(--accent);
+  background-image:
+    linear-gradient(var(--ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+  background-size:48px 48px;
+  background-position:center center;
   padding:0;
 }
+.netwrap::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+  background-size:48px 48px;
+  background-position:center center;
+  opacity:.22;
+  pointer-events:none;
+  z-index:0;
+}
+.netwrap .net, .netwrap .netlist{position:relative;z-index:1}
 .net{position:absolute;inset:0;width:100%;height:100%}
 
 /* NB: vector-effect is switched OFF here on purpose — and explicitly,
@@ -882,11 +916,11 @@ body{line-height:1.5}
    Chrome measures the dash pattern in device pixels while the dash values
    stay in viewBox units, so every connector stopped ~20 units short of the
    router. Plain scaling strokes dash honestly. */
-.net__links path{fill:none;stroke:rgba(12,11,17,.22);stroke-width:1.3;vector-effect:none}
+.net__links path{fill:none;stroke:#fff;stroke-width:1.3;vector-effect:none}
 /* dash units follow pathLength="100", so every connector — long or
    short — carries its pulse at the same visual pace */
 .net__flow path{
-  fill:none;stroke:var(--accent);stroke-width:2.1;vector-effect:none;
+  fill:none;stroke:#fff;stroke-width:2.1;vector-effect:none;
   stroke-linecap:round;stroke-dasharray:4 96;stroke-dashoffset:100;
   animation:flow 3.8s linear infinite;
 }
@@ -897,22 +931,22 @@ body{line-height:1.5}
 .net__flow path:nth-child(6){animation-delay:2.75s}
 @keyframes flow{to{stroke-dashoffset:0}}
 
-.net .node rect{fill:#fff;stroke:rgba(12,11,17,.16);stroke-width:1;vector-effect:non-scaling-stroke}
+.net .node rect{fill:var(--paper);stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke}
 .net .node text{font-family:var(--mono);font-size:14px;fill:var(--ink);letter-spacing:.02em}
-.net .node .n-count{font-size:12px;fill:var(--g300);text-anchor:end}
+.net .node .n-count{font-size:12px;fill:var(--ink);text-anchor:end}
 .net .node--more rect{fill:none;stroke-dasharray:4 4}
-.net .node--more text{fill:var(--g300)}
+.net .node--more text{fill:var(--ink)}
 
-.net .core rect{fill:#fff;stroke:var(--accent);stroke-width:1.4;vector-effect:non-scaling-stroke}
+.net .core rect{fill:var(--paper);stroke:var(--accent);stroke-width:1.4;vector-effect:non-scaling-stroke}
 .net .c-name{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:-.03em;fill:var(--ink);text-anchor:middle}
 .net .c-tick{font-family:var(--mono);font-size:12px;fill:var(--accent);text-anchor:middle}
 
-.net__out path{fill:none;stroke:var(--ink);stroke-width:1.4;vector-effect:non-scaling-stroke}
+.net__out path{fill:none;stroke:#fff;stroke-width:1.4;vector-effect:non-scaling-stroke}
 .net__head{stroke-linejoin:round;stroke-linecap:round}
 
 .net .prodcard rect{fill:var(--ink)}
 .net .p-name{font-family:var(--sans);font-size:22px;font-weight:600;letter-spacing:-.03em;fill:var(--paper)}
-.net .p-code{font-family:var(--mono);font-size:13px;fill:var(--g200)}
+.net .p-code{font-family:var(--mono);font-size:13px;fill:var(--paper)}
 .net .p-note{font-family:var(--mono);font-size:11px;fill:var(--accent);letter-spacing:.04em}
 
 /* narrow-screen fallback stack */
@@ -920,10 +954,10 @@ body{line-height:1.5}
 .netlist li{
   display:flex;justify-content:space-between;align-items:center;gap:12px;
   padding:12px 16px;border:1px solid var(--line);border-radius:var(--r-pill);
-  background:#fff;font-family:var(--mono);font-size:12px;
+  background:var(--paper);font-family:var(--mono);font-size:12px;
 }
-.netlist b{font-weight:400;color:var(--g300)}
-.netlist__more{border-style:dashed;color:var(--g300)}
+.netlist b{font-weight:400;color:var(--ink)}
+.netlist__more{border-style:dashed;color:var(--ink)}
 .netlist__core{border-color:var(--accent);font-size:15px;font-family:var(--sans);font-weight:600}
 .netlist__core b{color:var(--accent);font-family:var(--mono);font-size:11px}
 .netlist__out{background:var(--ink);border-color:var(--ink);color:var(--paper);justify-content:center}
