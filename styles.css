@@ -182,8 +182,16 @@ body::before{
   white-space:nowrap;
 }
 .btn:hover{border-color:var(--fg);background:var(--paper-2)}
+/* on dark surfaces paper-2 hover would wash the whole button out —
+   just strengthen the outline instead */
+.sec--dark .btn:hover,
+.calc__out .btn:hover{background:transparent}
 .btn--solid{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .btn--solid:hover{background:transparent;color:var(--ink)}
+/* on dark sections the transparent hover would leave the label ink-on-ink —
+   keep the fill and invert to paper instead */
+.sec--dark .btn--solid:hover,
+.calc__out .btn--solid:hover{background:var(--paper);border-color:var(--paper);color:var(--ink)}
 .btn--full{width:100%;margin-top:8px}
 .ctas{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 
