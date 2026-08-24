@@ -633,19 +633,6 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radiu
 .final__sub{font-size:clamp(16px,1.4vw,22px);color:var(--g100);max-width:34ch}
 .final .ctas{justify-content:flex-end}
 
-.ftr{padding:clamp(64px,7vw,120px) 0 34px;background:var(--ink-2);position:relative}
-.ftr::before{
-  content:"";position:absolute;left:0;right:0;top:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(240,239,235,.12),transparent);
-}
-.ftr__cols{row-gap:40px}
-.ftr__brand p{margin-top:16px;font-size:14px;color:var(--g200);max-width:34ch}
-.ftr__h{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
-.ftr__cols a{display:block;font-size:15px;color:var(--g100);padding:5px 0;transition:color .2s,transform .2s}
-.ftr__cols a:hover{color:#fff;transform:translateX(4px)}
-.ftr__bottom{margin-top:70px;padding-top:24px;border-top:1px solid rgba(240,239,235,.10);font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--g200)}
-.ftr__mark{margin-top:50px;font-size:clamp(64px,16vw,260px);font-weight:600;letter-spacing:-.06em;line-height:.78;color:transparent;-webkit-text-stroke:1px rgba(240,239,235,.10);user-select:none}
-
 /* =========================================================
    RESPONSIVE
    ========================================================= */
@@ -825,7 +812,13 @@ body{line-height:1.5}
 .c5-8{grid-column:5/8}
 .c8-11{grid-column:8/11}
 
-.ftr{padding:clamp(64px,7vw,110px) 0 28px}
+/* footer — mirrors the apitoken.sale structure:
+   brand + about on the left, four link columns, legal line below */
+.ftr{padding:clamp(64px,7vw,110px) 0 28px;background:var(--ink-2);position:relative}
+.ftr::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(240,239,235,.12),transparent);
+}
 .ftr__top{row-gap:44px;align-items:start}
 .ftr__brand{grid-column:1/4}
 .ftr__top > .ftr__col:nth-child(2){grid-column:5/7}
@@ -837,27 +830,19 @@ body{line-height:1.5}
 
 .ftr__col{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
 .ftr__h{
-  display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--accent);margin-bottom:18px;
+  display:block;font-size:13px;font-weight:600;letter-spacing:-.01em;
+  color:var(--paper);margin-bottom:14px;
 }
 .ftr__col a{
-  font-size:15px;color:var(--g100);padding:7px 0;
+  font-size:14px;color:var(--g200);padding:6px 0;
   transition:color .25s,transform .25s;
 }
-.ftr__col a:hover{color:#fff;transform:translateX(5px)}
+.ftr__col a:hover{color:#fff;transform:translateX(4px)}
 
-.ftr__mark{
-  margin:clamp(50px,6vw,90px) 0 0;
-  font-size:clamp(64px,15.5vw,250px);font-weight:600;
-  letter-spacing:-.055em;line-height:.82;
-  color:transparent;-webkit-text-stroke:1px rgba(240,239,235,.2);
-  user-select:none;overflow:hidden;
-}
 .ftr__bottom{
-  margin-top:clamp(30px,3.4vw,54px);padding-top:22px;
-  border-top:1px solid var(--line);
-  font-family:var(--mono);font-size:10px;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--g200);align-items:center;
+  margin-top:clamp(44px,5vw,72px);padding-top:22px;
+  border-top:1px solid rgba(240,239,235,.10);
+  font-size:13px;line-height:1.5;color:var(--g300);
 }
 
 @media (max-width:1024px){
@@ -867,7 +852,6 @@ body{line-height:1.5}
 }
 @media (max-width:640px){
   .c5-8,.c8-11{grid-column:1/5}
-  .ftr__mark{-webkit-text-stroke-width:.7px}
   .ftr__bottom .ta-r{text-align:left;margin-top:10px}
 }
 
@@ -1051,94 +1035,6 @@ body{line-height:1.5}
 .mcard:hover .mcard__row b{color:#fff}
 .mcard:hover .mcard__row,.pick:hover .pick__specs div{border-top-color:#fff}
 .mcard:hover .tag{border-color:#fff;color:#fff}
-
-/* =========================================================
-   FOOTER v3 — register
-   Links become full-width numbered rows with a rule under
-   each, matching the drawing-index language of the page.
-   Replaces the earlier column layout entirely.
-   ========================================================= */
-.ftr{padding:clamp(60px,6.5vw,104px) 0 26px}
-
-.ftr__head{align-items:baseline;padding-bottom:clamp(34px,4vw,64px)}
-.ftr__head .brand{font-size:clamp(18px,1.6vw,24px)}
-.ftr__mail{
-  justify-self:end;text-align:right;
-  font-size:clamp(16px,1.6vw,26px);font-weight:500;letter-spacing:-.03em;
-  color:var(--accent);position:relative;
-}
-.ftr__mail::after{
-  content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;
-  background:var(--accent);transform:scaleX(0);transform-origin:right center;
-  transition:transform .5s cubic-bezier(.53,0,0,1);
-}
-.ftr__mail:hover::after{transform:scaleX(1);transform-origin:left center}
-
-.ftr__reg{display:flex;flex-direction:column}
-.ftr__reg a{
-  display:grid;
-  grid-template-columns:64px minmax(0,1fr) minmax(0,1fr) 40px;
-  align-items:center;gap:20px;
-  padding:22px 0;border-top:1px solid var(--line);
-  position:relative;transition:color .3s;
-}
-.ftr__reg a:last-child{border-bottom:1px solid var(--line)}
-
-/* accent wash that wipes in from the left on hover */
-.ftr__reg a::before{
-  content:"";position:absolute;left:calc(var(--margin) * -1);right:calc(var(--margin) * -1);
-  top:0;bottom:0;background:var(--accent);z-index:-1;
-  transform:scaleX(0);transform-origin:left center;
-  transition:transform .55s cubic-bezier(.53,0,0,1);
-}
-.ftr__reg a:hover::before{transform:scaleX(1)}
-.ftr__reg a:hover{color:var(--ink)}
-.ftr__reg a:hover .ftr__no,
-.ftr__reg a:hover .ftr__sub{color:rgba(12,11,17,.66)}
-.ftr__reg a:hover .ftr__ttl{color:var(--ink)}
-.ftr__reg a:hover i{border-color:var(--ink);background:var(--ink)}
-.ftr__reg a:hover i::after{border-color:var(--accent)}
-
-.ftr__no{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent)}
-.ftr__ttl{font-size:clamp(19px,2.2vw,34px);font-weight:600;letter-spacing:-.035em;color:var(--paper)}
-.ftr__sub{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--g300)}
-.ftr__reg i{
-  justify-self:end;width:34px;height:34px;border-radius:var(--r-pill);
-  border:1px solid var(--line);position:relative;
-  transition:background .35s,border-color .35s,transform .45s cubic-bezier(.53,0,0,1);
-}
-.ftr__reg i::after{
-  content:"";position:absolute;left:12px;top:13px;width:7px;height:7px;
-  border-top:1px solid var(--paper);border-right:1px solid var(--paper);
-  transform:rotate(45deg);transition:border-color .35s;
-}
-.ftr__reg a:hover i{transform:translateX(5px)}
-
-.ftr__bottom{
-  margin-top:clamp(30px,3.4vw,52px);padding-top:20px;
-  border-top:1px solid var(--line);
-  font-family:var(--mono);font-size:10px;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--g200);align-items:center;
-}
-.ftr__legal a{transition:color .25s}
-.ftr__legal a:hover{color:var(--accent)}
-
-@media (max-width:820px){
-  .ftr__reg a{grid-template-columns:44px minmax(0,1fr) 30px;gap:14px;padding:18px 0}
-  .ftr__sub{display:none}
-  .ftr__mail{justify-self:start;text-align:left;margin-top:14px}
-  .ftr__head .c6-13{grid-column:1/9}
-}
-@media (max-width:640px){
-  .ftr__bottom span{grid-column:1/5!important;text-align:left!important;margin-bottom:6px}
-}
-
-/* Footer hover wash: z-index:-1 dropped it behind the footer's own
-   background, so the row went black-on-black and vanished. Stack it
-   above the background and keep the content above the wash. */
-.ftr__reg a{isolation:isolate}
-.ftr__reg a::before{z-index:0}
-.ftr__reg a > *{position:relative;z-index:1}
 
 /* =========================================================
    SECTION 02 — REQUEST TRACE
@@ -1519,11 +1415,6 @@ body{line-height:1.5}
   .acc__a p{padding:0 18px 22px;font-size:14px}
 
   /* footer */
-  .ftr__head{grid-template-columns:1fr;gap:18px}
-  .ftr__mail{justify-self:start;text-align:left;font-size:20px}
-  .ftr__reg a{grid-template-columns:44px 1fr 30px;gap:12px;padding:18px 0}
-  .ftr__sub{display:none}
-  .ftr__bottom{grid-template-columns:1fr;gap:10px;text-align:left}
-  .ftr__bottom .ta-r{text-align:left}
-  .ftr__mark{font-size:clamp(48px,18vw,120px)}
+  .ftr__top .ftr__col{grid-column:1/5;margin-top:18px}
+  .ftr__bottom{display:block;text-transform:none;letter-spacing:.02em;font-size:11px}
 }
