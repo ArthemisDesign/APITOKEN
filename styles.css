@@ -1248,12 +1248,15 @@ body{line-height:1.5}
   display:flex;flex-direction:column;align-items:flex-end;text-align:right;
   z-index:3;
   margin-left:auto;
+  /* the superscript % would otherwise butt against the plate's right edge and
+     get clipped by .plate's overflow:hidden — keep a small breathing room */
+  padding-right:.35em;
 }
 .plate__claim .claim__val{
   color:var(--ink);
-  font-size:clamp(32px,4vw,72px);line-height:1;letter-spacing:-.05em;
+  font-size:clamp(32px,4vw,72px);line-height:1.05;letter-spacing:-.05em;
 }
-.plate__claim .claim__val em{font-style:normal;font-size:.45em;vertical-align:super;line-height:1;padding-top:.25em;display:inline-block}
+.plate__claim .claim__val em{font-style:normal;font-size:.5em;vertical-align:super}
 
 /* header sits directly on the plate until the page scrolls */
 .hdr{--hdr-h:84px}
